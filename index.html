@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Hello, WebVR! - A-Frame</title>
+	<meta name="description" content="Hello, WebVR! - A-Frame">
+  <script src="aframe-master-v1.3.0.min.js"></script>
+  <script src="aframe-environment-component.js"></script>
+  <script src="extended-wasd-controls.js"></script>
+
+</head>
+
+<body>
+
+<a-scene environment="preset: arches; shadow: true;" 
+    keyboard-shortcuts="enterVR: false;">
+	  
+  <a-assets>
+    <img id="sky" src="stars.jpg" crossorigin="anonymous" />
+
+    <img id="toruspattern" src="toruspattern.png" crossorigin="anonymous" />
+  </a-assets>
+  <a-entity id="camera" camera
+    position="0 1.6 0"
+    extended-wasd-controls="flyEnabled: true; turnEnabled: true; lookEnabled: true; maxLookAngle: 60;">
+  </a-entity>
+	<a-entity 
+		light="type: ambient; color: #666666;" 
+	</a-entity>
+	<a-entity 
+		light="type: directional; color: #FFFFFF; castShadow: true;" 
+		position="-1 4 0">
+	</a-entity>
+
+		
+	<a-sky 
+		color = "#001337">
+	</a-sky>
+
+	<a-torus-knot 
+		p="2" q="3" radius="0.5" radius-tubular="0.1"
+		position = "-2.5 1.5 -4"
+		color="#CC3333" 
+    material = "src: #toruspattern; repeat: 4 2;"
+		shadow = "cast: true; receive: true">
+	</a-torus-knot>
+	
+	<a-cone
+		radius-bottom = "1" radius-top = "0" height = "2"
+		position = "3 1 -4"
+		color = "#4444CC"
+		shadow = "cast: true; receive: true">
+	</a-cone>
+	
+	<a-torus 
+		radius="0.5" radius-tubular="0.1"
+		position = "2 3 -4"
+		rotation = "30 -20 0"
+		color="#8800FF"
+		shadow = "cast: true; receive: true">
+	</a-torus>
+
+</a-scene>
+
+</body>
+</html>
